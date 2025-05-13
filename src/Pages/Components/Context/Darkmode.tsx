@@ -1,10 +1,5 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  ReactNode,
-} from "react";
+import React, { createContext, useContext, useEffect, ReactNode } from "react";
+import { useLocalStorage } from "../App/hook/useLocalStorage";
 
 interface DarkModeContextType {
   darkMode: boolean;
@@ -30,10 +25,7 @@ interface DarkmodeProps {
 }
 
 const Darkmode: React.FC<DarkmodeProps> = ({ children }) => {
-  const [darkMode, setDarkMode] = useState<boolean>(() => {
-    const savedMode = localStorage.getItem("darkMode");
-    return savedMode === "true";
-  });
+  const [darkMode, setDarkMode] = useLocalStorage<boolean>("darkMode", false);
 
   useEffect(() => {
     if (darkMode) {
@@ -41,7 +33,6 @@ const Darkmode: React.FC<DarkmodeProps> = ({ children }) => {
     } else {
       document.body.classList.remove("dark");
     }
-    localStorage.setItem("darkMode", darkMode.toString());
   }, [darkMode]);
 
   return (
