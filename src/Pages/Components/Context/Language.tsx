@@ -27,7 +27,7 @@ interface LanguageProps {
 const Language: React.FC<LanguageProps> = ({ children }) => {
   const [currentLanguage, setCurrentLanguage] = useLocalStorage<Language>(
     "selectedLanguage",
-    "fa"
+    "En"
   );
 
   const changeLanguage = (lang: Language) => {
