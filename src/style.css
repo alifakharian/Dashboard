@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: general;
+}
+@font-face {
+  font-family: general;
+  src: url("../src/Pages/Fonts/IRANSansWeb_Medium.ttf");
+}
+.btn-delay {
+  @apply duration-1000 dark:duration-1000;
+}
+.btn-button {
+  @apply bg-rose-600 p-1 rounded-lg hover:bg-rose-800 dark:bg-blue-500 duration-700 dark:duration-700 dark:hover:bg-blue-700 text-white font-bold;
+}
